@@ -1,0 +1,20 @@
+//////////////////////////////////////////////////////////////////////////////////
+import { v4 as uuid } from 'https://jspm.dev/uuid';
+//////////////////////////////////////////////////////////////////////////////////
+function AgregarMarket()
+{
+    let randomColor = Math.floor(Math.random()*16777215).toString(16)
+    let ramd = () => parseInt(Math.random() *100000)
+    let punto = [parseFloat(`-72.50${ramd()}`),parseFloat(`7.89${ramd()}`)]
+
+    let obj = {
+        uuid: uuid(),
+        marker : new mapboxgl.Marker({ color: `#${randomColor}` }).setLngLat( punto ).addTo(map)
+    }
+    markers.push( obj )
+
+    
+}
+//////////////////////////////////////////////////////////////////////////////////
+export { AgregarMarket }
+//////////////////////////////////////////////////////////////////////////////////

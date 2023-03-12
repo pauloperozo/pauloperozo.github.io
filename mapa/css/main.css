@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    background:rgb(25 26 26);
+}
+
+#map {
+    position: fixed; 
+    top: 1; 
+    left: 0; 
+    z-index: 1000; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.cuadro_busqueda
+{
+    text-align: right;
+    padding: 5px;
+    padding-right: 20px;
+
+}
