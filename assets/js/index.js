@@ -1,41 +1,85 @@
-//crea elemento
+///////////////////////////////////////////////////////////////////////////////////
 const video = document.createElement("video");
-
-//nuestro camvas
 const canvasElement = document.getElementById("qr-canvas");
 const canvas = canvasElement.getContext("2d");
-
-//div donde llegara nuestro canvas
 const btnScanQR = document.getElementById("btn-scan-qr");
-
-//lectura desactivada
 let scanning = false;
+let cantidatos = []
 
-//funcion para encender la camara
-const encenderCamara = () => {
+function getCandidatos()
+{
+  fetch('./assets/json/candidatos.json')
+  .then(response => response.json())
+  .then(data => {
+     console.log( data )
+  })
+  .catch(error => console.error('Error al obtener datos:', error));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+function getInfo(str) {
+  const data = str.split("!");
+  const arry = data[1].split(",").map((n) => Number(n));
+
+  const resumen = { circuito: data[0], total: 0, data: [] };
+
+  for (let [index, votos] of arry.entries()) {
+    const { organizacion, nombre } = cantidatos[index];
+
+    let ref = resumen.data.findIndex((row) => row.nombre === nombre);
+
+    if (ref === -1) {
+      resumen.data.push({ nombre, votos: 0, detalle: [] });
+      ref = resumen.data.length - 1;
+    }
+
+    resumen.data[ref].votos += votos;
+    resumen.data[ref].detalle.push({ organizacion, votos });
+
+    resumen.total += votos;
+  }
+
+  resumen.data.sort((a, b) => b.votos - a.votos);
+
+  return resumen;
+}
+///////////////////////////////////////////////////////////////////////////////////
+ const encenderCamara = () => {
   navigator.mediaDevices
     .getUserMedia({ video: { facingMode: "environment" } })
     .then(function (stream) {
       scanning = true;
       btnScanQR.hidden = true;
       canvasElement.hidden = false;
-      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.setAttribute("playsinline", true);
       video.srcObject = stream;
       video.play();
       tick();
       scan();
     });
 };
-
-//funciones para levantar las funiones de encendido de la camara
-function tick() {
+///////////////////////////////////////////////////////////////////////////////////
+ function tick() {
   canvasElement.height = video.videoHeight;
   canvasElement.width = video.videoWidth;
   canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 
   scanning && requestAnimationFrame(tick);
 }
-
+///////////////////////////////////////////////////////////////////////////////////
 function scan() {
   try {
     qrcode.decode();
@@ -43,8 +87,7 @@ function scan() {
     setTimeout(scan, 300);
   }
 }
-
-//apagara la camara
+///////////////////////////////////////////////////////////////////////////////////
 const cerrarCamara = () => {
   video.srcObject.getTracks().forEach((track) => {
     track.stop();
@@ -52,30 +95,31 @@ const cerrarCamara = () => {
   canvasElement.hidden = true;
   btnScanQR.hidden = false;
 };
-
+///////////////////////////////////////////////////////////////////////////////////
 const activarSonido = () => {
   var audio = document.getElementById('audioScaner');
   audio.play();
 }
-
-//callback cuando termina de leer el codigo QR
+///////////////////////////////////////////////////////////////////////////////////
 qrcode.callback = (respuesta) => {
   if (respuesta) {
-    //console.log(respuesta);
-    Swal.fire(respuesta)
+    
+    //Swal.fire(respuesta)
     activarSonido();
-    //encenderCamara();    
     cerrarCamara();    
 
   }
 };
-//evento para mostrar la camara sin el boton 
+/////////////////////////////////////////////////////////////////////////////////// 
+
+
+
 window.addEventListener('load', (e) => {
-  encenderCamara();
+   
+    getCandidatos()
+
+
+
 })
-
-
-
-
 
 
