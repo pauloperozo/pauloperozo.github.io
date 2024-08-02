@@ -33,8 +33,9 @@ async function getCandidatos() {
 ///////////////////////////////////////////////////////////////////////////////////
 function getInfo(str) {
   const data = str.split("!");
-  const arry = data[1].split(",").map((n) => Number(n));
+  const arry = data[1].split(",").map((n) => Number(n)).filter((n) => !isNaN(n) );
 
+  if (!regex.test(str)) throw new Error("Formato Invalido");
   if (data.length !== 4 || arry.length !== 38) throw new Error("Error Scan");
 
   const resumen = { circuito: data[0], total: 0, data: [] };
