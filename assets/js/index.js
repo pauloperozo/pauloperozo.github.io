@@ -5,30 +5,15 @@ const canvas = canvasElement.getContext("2d");
 const btnScanQR = document.getElementById("btn-scan-qr");
 let scanning = false;
 let cantidatos = []
-
-function getCandidatos()
-{
-  fetch('./assets/json/candidatos.json')
-  .then(response => response.json())
-  .then(data => {
-     console.log( data )
-  })
-  .catch(error => console.error('Error al obtener datos:', error));
-
+///////////////////////////////////////////////////////////////////////////////////
+async function getCandidatos() {
+  try {
+      const response = await fetch('./assets/json/candidatos.json');
+      cantidatos = await response.json();
+  } catch (error) {
+      console.error('Error al obtener datos:', error);
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 function getInfo(str) {
   const data = str.split("!");
@@ -104,6 +89,10 @@ const activarSonido = () => {
 qrcode.callback = (respuesta) => {
   if (respuesta) {
     
+    const data = getInfo( respuesta )
+    document.getElementById("respuesta").innerHTML= JSON.stringify(data,null,2)
+
+
     //Swal.fire(respuesta)
     activarSonido();
     cerrarCamara();    
