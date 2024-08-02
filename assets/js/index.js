@@ -35,6 +35,8 @@ function getInfo(str) {
   const data = str.split("!");
   const arry = data[1].split(",").map((n) => Number(n));
 
+  if (data.length !== 4 || arry.length !== 38) throw new Error("Problema al leer Qr");
+
   const resumen = { circuito: data[0], total: 0, data: [] };
 
   for (let [index, votos] of arry.entries()) {
@@ -99,13 +101,13 @@ qrcode.callback = (response) => {
 
   try {
 
-  if (!response) throw new Error("Respuesta Invalida....")
-  audio.play()
-  cerrarCamara(); 
-  divPrincipal.hidden = true;
-  const sumary = getInfo( response )
-  imprimir( sumary );
-  divSumary.hidden = false
+      if (!response) throw new Error("Respuesta Invalida....")
+      audio.play()
+      cerrarCamara(); 
+      divPrincipal.hidden = true;
+      const sumary = getInfo( response )
+      imprimir( sumary );
+      divSumary.hidden = false
 
   } catch (e) {
     Swal.fire(e?.message)
