@@ -4,45 +4,22 @@ const canvasElement = document.getElementById("qr-canvas");
 const canvas = canvasElement.getContext("2d");
 const btnScanQR = document.getElementById("btn-scan-qr");
 const divPrincipal = document.getElementById("principal")
+const divSumary = document.getElementById("sumary")
 const divRespuesta = document.getElementById("respuesta")
 const audio = document.getElementById('audioScaner');
 let [scanning,candidatos] = [ false,[]]
 ///////////////////////////////////////////////////////////////////////////////////
-function imprimir( resumen ){
+function imprimir( sumary ){
 
-  return `<div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-    </div>
-  </div>
-</div>`
+  try {
+ 
+    const template = document.getElementById('template').innerHTML;
+    const rendered = Mustache.render(template, sumary);
+    divRespuesta.innerHTML = rendered;
 
+  } catch (e) {
+    throw new Error("Error Render")
+  }
 }
 ///////////////////////////////////////////////////////////////////////////////////
 async function getCandidatos() {
@@ -61,12 +38,12 @@ function getInfo(str) {
   const resumen = { circuito: data[0], total: 0, data: [] };
 
   for (let [index, votos] of arry.entries()) {
-    const { organizacion, nombre } = cantidatos[index];
+    const { organizacion, nombre,foto } = cantidatos[index];
 
     let ref = resumen.data.findIndex((row) => row.nombre === nombre);
 
     if (ref === -1) {
-      resumen.data.push({ nombre, votos: 0, detalle: [] });
+      resumen.data.push({ nombre, votos: 0, detalle: [],foto});
       ref = resumen.data.length - 1;
     }
 
@@ -125,12 +102,12 @@ qrcode.callback = (response) => {
   try {
 
   if (!response) throw new Error("Respuesta Invalida....")
-  
-  const data = getInfo( response )
   audio.play()
   cerrarCamara(); 
   divPrincipal.hidden = true;
-  divRespuesta.innerHTML= imprimir( data )
+  const sumary = getInfo( response )
+  imprimir( sumary );
+  divSumary.hidden = false
 
   } catch (e) {
     Swal.fire(e?.message)
@@ -140,6 +117,7 @@ qrcode.callback = (response) => {
 /////////////////////////////////////////////////////////////////////////////////// 
 window.addEventListener('load', async (e) => {
   try {
+    divSumary.hidden = true
     await getCandidatos()
   } catch (e) {
     Swal.fire(e?.message)

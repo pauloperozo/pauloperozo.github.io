@@ -5,8 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src=" https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js "></script>
   <script src="assets/plugins/qrCode.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script id="template" type="x-tmpl-mustache">
+
+    <div>          
+        <h5 class="text-center" >Acta: {{ circuito }} <h5/>
+        <h5 class="text-center" >Total Votos: {{ total }} <h5/>
+    </div>
+        
+    <ul>
+        {{#data}}
+           <img src="{{foto}}" class="rounded mx-auto d-block" alt="...">
+            <dt> {{nombre}} ( {{votos}} )  </dt>
+            {{#detalle}}
+                <dd> {{organizacion}} : {{votos}} </dd>
+            {{/detalle}}
+
+        {{/data}}
+    </ul>
+ 
+  </script>
+ 
 </head>
 <body>
 
@@ -25,7 +47,15 @@
     </div>
     </div>
   </div>
-  <div id="respuesta"></div>
+
+  <div id="sumary" class="row justify-content-center mt-5">
+    <div class="col-sm-4 shadow p-3">
+      <div class="alert alert-primary text-center " role="alert">Resultados</div>
+      <div id="respuesta" class="row text-center">
+    </div>
+    </div>
+  </div>
+
   <audio id="audioScaner" src="assets/sonido.mp3"></audio>
   <script src="assets/js/index.js"></script>
 </body>
