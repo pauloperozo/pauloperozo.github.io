@@ -3,6 +3,11 @@ const video = document.createElement("video");
 const canvasElement = document.getElementById("qr-canvas");
 const canvas = canvasElement.getContext("2d");
 const btnScanQR = document.getElementById("btn-scan-qr");
+const divPrincipal = document.getElementById("principal")
+const divRespuesta = document.getElementById("respuesta")
+const Audio = document.getElementById('audioScaner');
+
+
 let scanning = false;
 let cantidatos = []
 ///////////////////////////////////////////////////////////////////////////////////
@@ -81,28 +86,19 @@ const cerrarCamara = () => {
   btnScanQR.hidden = false;
 };
 ///////////////////////////////////////////////////////////////////////////////////
-const activarSonido = () => {
-  var audio = document.getElementById('audioScaner');
-  audio.play();
-}
+const activarSonido = () => Audio.play()
 ///////////////////////////////////////////////////////////////////////////////////
-qrcode.callback = (respuesta) => {
-  if (respuesta) {
-    
-    const data = getInfo( respuesta )
-    document.getElementById("respuesta").innerHTML= JSON.stringify(data,null,2)
-
-
-    //Swal.fire(respuesta)
+qrcode.callback = (response) => {
+  if (response) {
+    const data = getInfo( response )
     activarSonido();
-    cerrarCamara();    
-
+    cerrarCamara(); 
+    menuPrincipal.hidden = true;
+    divRespuesta.innerHTML= JSON.stringify(data,null,2)
+    //Swal.fire(response)
   }
 };
 /////////////////////////////////////////////////////////////////////////////////// 
-
-
-
 window.addEventListener('load', (e) => {
    
     getCandidatos()
@@ -110,5 +106,5 @@ window.addEventListener('load', (e) => {
 
 
 })
-
+/////////////////////////////////////////////////////////////////////////////////// 
 
