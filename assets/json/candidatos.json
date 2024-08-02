@@ -36,5 +36,5 @@
     { "organizacion": "MPV", "nombre": "EDMUNDO GONZALEZ" , "foto":"assets/img/edmundo.png"},
     { "organizacion": "MUD", "nombre": "EDMUNDO GONZALEZ" , "foto":"assets/img/edmundo.png"},
     { "organizacion": "CENTRADOS", "nombre": "ENRIQUE MARQUEZ" , "foto":"assets/img/enriquemarquez.png"},
-    { "organizacion": "CONDE", "nombre": "BENJAMIN RAUSSEO","foto":"benjaminrausseo.png" }
+    { "organizacion": "CONDE", "nombre": "BENJAMIN RAUSSEO","foto":"assets/img/benjaminrausseo.png" }
   ]
