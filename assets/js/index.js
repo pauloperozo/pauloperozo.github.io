@@ -49,7 +49,6 @@ function getInfo(str) {
 
     resumen.data[ref].votos += votos;
     resumen.data[ref].detalle.push({ organizacion, votos });
-
     resumen.total += votos;
   }
 
@@ -77,7 +76,6 @@ function getInfo(str) {
   canvasElement.height = video.videoHeight;
   canvasElement.width = video.videoWidth;
   canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-
   scanning && requestAnimationFrame(tick);
 }
 ///////////////////////////////////////////////////////////////////////////////////
