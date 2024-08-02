@@ -27,7 +27,7 @@ async function getCandidatos() {
       const resp = await fetch('./assets/json/candidatos.json');
       cantidatos = await resp.json();
   } catch (e) {
-      throw new Error("Se Presento Un Problema...!!!")
+      throw new Error("Error Load")
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ function getInfo(str) {
   const data = str.split("!");
   const arry = data[1].split(",").map((n) => Number(n));
 
-  if (data.length !== 4 || arry.length !== 38) throw new Error("Problema al leer Qr");
+  if (data.length !== 4 || arry.length !== 38) throw new Error("Error Scan");
 
   const resumen = { circuito: data[0], total: 0, data: [] };
 
@@ -101,7 +101,7 @@ qrcode.callback = (response) => {
 
   try {
 
-      if (!response) throw new Error("Respuesta Invalida....")
+      if (!response) throw new Error("Error Response")
       audio.play()
       cerrarCamara(); 
       divPrincipal.hidden = true;
@@ -121,6 +121,7 @@ window.addEventListener('load', async (e) => {
     await getCandidatos()
   } catch (e) {
     Swal.fire(e?.message)
+    setTimeout( ()=> window.location.reload(), 5000);
   }
 })
 /////////////////////////////////////////////////////////////////////////////////// 
