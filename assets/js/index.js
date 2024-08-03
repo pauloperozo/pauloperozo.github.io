@@ -40,7 +40,7 @@ function ErrorReload( msj = "" )
 function getInfo(str) {
   
   if (typeof str !== 'string' ) throw new Error("Error Scan");
-  if (/^[0-9.,!]+$/.test(str) === false) throw new Error("Formato Invalido");
+  if (/^[0-9.,!]+$/.test(str) === false) throw new Error("Error Scan");
 
   const data = str.split("!");
   const arry = data[1].split(",").map((n) => Number(n)).filter((n) => !isNaN(n) );
@@ -108,10 +108,8 @@ const cerrarCamara = () => {
 ///////////////////////////////////////////////////////////////////////////////////
 qrcode.callback = (response) => {
 
-  alert( response )
-
   try {
-    
+
       if (!response) throw new Error("Error Response")
       audio.play()
       cerrarCamara(); 
