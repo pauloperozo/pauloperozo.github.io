@@ -40,11 +40,10 @@ function ErrorReload( msj = "" )
 function getInfo(str) {
   
   if (typeof a === 'string' ) throw new Error("Error Scan");
-  if (!regex.test(str)) throw new Error("Formato Invalido");
+  if (/^[0-9.,!]+$/.test(str) === false) throw new Error("Formato Invalido");
 
   const data = str.split("!");
   const arry = data[1].split(",").map((n) => Number(n)).filter((n) => !isNaN(n) );
-  const regex = /^[0-9.,!]+$/;
   if (data.length !== 4 || arry.length !== 38) throw new Error("Error Scan");
 
   const resumen = { circuito: data[0], total: 0, data: [] };
