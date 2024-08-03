@@ -31,13 +31,20 @@ async function getCandidatos() {
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////
+function ErrorReload( msj = "" )
+{
+  Swal.fire(msj)
+  setTimeout( ()=> window.location.reload(), 5000);
+}
+///////////////////////////////////////////////////////////////////////////////////
 function getInfo(str) {
   
+  if (typeof a === 'string' ) throw new Error("Error Scan");
+  if (!regex.test(str)) throw new Error("Formato Invalido");
+
   const data = str.split("!");
   const arry = data[1].split(",").map((n) => Number(n)).filter((n) => !isNaN(n) );
   const regex = /^[0-9.,!]+$/;
-
-  if (!regex.test(str)) throw new Error("Formato Invalido");
   if (data.length !== 4 || arry.length !== 38) throw new Error("Error Scan");
 
   const resumen = { circuito: data[0], total: 0, data: [] };
@@ -88,7 +95,7 @@ function scan() {
   try {
     qrcode.decode();
   } catch (e) {
-    setTimeout(scan, 300);
+    setTimeout(scan, 500);
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////
@@ -113,7 +120,7 @@ qrcode.callback = (response) => {
       divSumary.hidden = false
 
   } catch (e) {
-    Swal.fire(e?.message)
+    ErrorReload(e?.message)
   }
 
 };
@@ -123,8 +130,7 @@ window.addEventListener('load', async (e) => {
     divSumary.hidden = true
     await getCandidatos()
   } catch (e) {
-    Swal.fire(e?.message)
-    setTimeout( ()=> window.location.reload(), 5000);
+    ErrorReload(e?.message)
   }
 })
 /////////////////////////////////////////////////////////////////////////////////// 
