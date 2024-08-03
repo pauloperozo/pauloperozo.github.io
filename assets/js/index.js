@@ -39,7 +39,7 @@ function ErrorReload( msj = "" )
 ///////////////////////////////////////////////////////////////////////////////////
 function getInfo(str) {
   
-  if (typeof str === 'string' ) throw new Error("Error Scan");
+  if (typeof str !== 'string' ) throw new Error("Error Scan");
   if (/^[0-9.,!]+$/.test(str) === false) throw new Error("Formato Invalido");
 
   const data = str.split("!");
@@ -108,10 +108,10 @@ const cerrarCamara = () => {
 ///////////////////////////////////////////////////////////////////////////////////
 qrcode.callback = (response) => {
 
+  alert( response )
+
   try {
-
-      alert( response )
-
+    
       if (!response) throw new Error("Error Response")
       audio.play()
       cerrarCamara(); 
