@@ -110,6 +110,8 @@ qrcode.callback = (response) => {
 
   try {
 
+      document.getElementById('debug').innerHTML = response;
+
       if (!response) throw new Error("Error Response")
       audio.play()
       cerrarCamara(); 
