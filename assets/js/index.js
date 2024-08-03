@@ -110,7 +110,7 @@ qrcode.callback = (response) => {
 
   try {
 
-      document.getElementById('debug').innerHTML = response;
+      alert( response )
 
       if (!response) throw new Error("Error Response")
       audio.play()
