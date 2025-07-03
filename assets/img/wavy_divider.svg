@@ -1,0 +1,13 @@
+<svg
+          class="absolute top-[10rem]"
+          xmlns="http://www.w3.org/2000/svg"
+          width="720"
+          height="103"
+          viewBox="0 0 720 103"
+          fill="none">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M772.763 27.1654C477.457 -81.6929 341.571 188.276 -2.76166 69.7607V158.904H772.763V27.1654Z"
+            fill="white" />
+        </svg>
