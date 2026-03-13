@@ -1,0 +1,169 @@
+<svg
+            class="absolute top-20 right-[50px] z-[1]"
+            xmlns="http://www.w3.org/2000/svg"
+            width="150"
+            height="155"
+            viewBox="0 0 150 155"
+            fill="none">
+            <path
+              d="M29.5657 139.189C29.5656 147.077 23.1709 153.472 15.2825 153.472L113.224 153.472C121.113 153.472 127.507 147.077 127.507 139.189L127.507 2.20255C127.507 1.5548 126.848 1.1159 126.25 1.36601L115.571 5.83607C115.373 5.9188 115.153 5.92887 114.948 5.86448L103.294 2.19324C103.117 2.13737 102.927 2.13737 102.75 2.19324L91.0958 5.86448C90.8914 5.92887 90.6708 5.9188 90.4732 5.83607L78.8867 0.986425C78.6627 0.89266 78.4104 0.89266 78.1864 0.986425L66.6 5.83606C66.4023 5.9188 66.1817 5.92887 65.9773 5.86448L54.3236 2.19324C54.1462 2.13736 53.956 2.13736 53.7786 2.19324L42.1249 5.86447C41.9205 5.92887 41.6999 5.9188 41.5023 5.83606L30.8227 1.366C30.2252 1.11589 29.5657 1.5548 29.5657 2.20255L29.5657 111.983L29.5657 139.189Z"
+              fill="white"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="86.669"
+              y1="89.4696"
+              x2="48.8202"
+              y2="89.4696"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="109.341"
+              y1="113.955"
+              x2="88.2694"
+              y2="113.955"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="86.669"
+              y1="76.3198"
+              x2="48.8202"
+              y2="76.3198"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="0.8"
+              y1="-0.8"
+              x2="38.6488"
+              y2="-0.8"
+              transform="matrix(1 1.74846e-07 1.74846e-07 -1 70.6908 33.3507)"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="109.347"
+              y1="45.4922"
+              x2="48.8264"
+              y2="45.9339"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="109.34"
+              y1="89.4696"
+              x2="98.6969"
+              y2="89.4696"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="109.341"
+              y1="76.3198"
+              x2="98.6984"
+              y2="76.3198"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="0.8"
+              y1="-0.8"
+              x2="11.4427"
+              y2="-0.8"
+              transform="matrix(1 1.74846e-07 1.74846e-07 -1 48.0203 33.3507)"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <mask
+              id="mask0_1353_97307"
+              style="mask-type: alpha"
+              maskUnits="userSpaceOnUse"
+              x="14"
+              y="111"
+              width="115"
+              height="44">
+              <path
+                d="M29.575 139.189C29.575 147.077 23.1803 153.472 15.2919 153.472L113.234 153.472C121.122 153.472 127.517 147.077 127.517 139.189L127.517 119.767C127.517 119.119 126.857 118.68 126.26 118.93L115.58 123.4C115.383 123.483 115.162 123.493 114.958 123.429L103.304 119.757C103.127 119.701 102.936 119.701 102.759 119.757L91.1052 123.429C90.9008 123.493 90.6802 123.483 90.4826 123.4L78.8961 118.551C78.6721 118.457 78.4198 118.457 78.1958 118.551L66.6094 123.4C66.4117 123.483 66.1911 123.493 65.9867 123.429L54.333 119.757C54.1556 119.701 53.9654 119.701 53.788 119.757L42.1343 123.429C41.9299 123.493 41.7093 123.483 41.5117 123.4L30.1318 118.637C29.7946 118.496 29.5751 118.166 29.5751 117.8L29.5751 111.983L29.575 139.189Z"
+                fill="white"
+                stroke="black"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </mask>
+            <g mask="url(#mask0_1353_97307)">
+              <path
+                d="M104.93 139.189C104.93 147.077 111.325 153.472 119.213 153.472L21.2711 153.472C13.3827 153.472 6.98792 147.077 6.98792 139.189L6.98792 127.324C6.98792 126.911 7.323 126.575 7.73635 126.575L104.181 126.575C104.595 126.575 104.93 126.911 104.93 127.324L104.93 139.189Z"
+                fill="#292B2E"
+                stroke="#292B2E"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </g>
+            <rect
+              x="0.999512"
+              y="78.6761"
+              width="49.3961"
+              height="29.937"
+              rx="2.99371"
+              fill="white"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <rect
+              x="0.99939"
+              y="84.6636"
+              width="49.3961"
+              height="4.49056"
+              fill="#292B2E" />
+            <line
+              x1="43.8771"
+              y1="101.929"
+              x2="33.2344"
+              y2="101.929"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line
+              x1="43.6081"
+              y1="97.4384"
+              x2="18.2647"
+              y2="97.4384"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <circle
+              cx="128.98"
+              cy="44.997"
+              r="17.2138"
+              fill="white"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path
+              d="M120.748 46.1446L125.987 51.7328L137.213 39.758"
+              stroke="#292B2E"
+              stroke-width="1.6" />
+            <path
+              d="M98.2566 139.189C98.2566 147.077 104.651 153.472 112.54 153.472L17.5917 153.472C9.70333 153.472 3.30854 147.077 3.30854 139.189L3.30854 127.482C3.30854 126.981 3.71456 126.575 4.21541 126.575L97.3497 126.575C97.8506 126.575 98.2566 126.981 98.2566 127.482L98.2566 139.189Z"
+              fill="white"
+              stroke="#292B2E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
